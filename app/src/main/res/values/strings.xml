@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AppBaseAndroid</string>
+
+    <string name="btn_ok">Ok</string>
+    <string name="internet_unable_connection">You have problem with the internet connection</string>
+    <string name="unable_connection">You are unable connection</string>
+</resources>
