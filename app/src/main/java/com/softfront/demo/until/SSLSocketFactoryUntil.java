@@ -28,7 +28,7 @@ public class SSLSocketFactoryUntil {
 
     public static SSLSocketFactory createSSLSocketFactory(Context context) {
         SSLSocketFactory sslSocketFactory = null;
-        if (BuildConfig.DEVELOPER_MODE) {
+        if (BuildConfig.DEBUG) {
             sslSocketFactory = createSSLSocketFactoryDeveloper(context);
         } else {
             sslSocketFactory = createSSLSocketFactoryRelease(context);
