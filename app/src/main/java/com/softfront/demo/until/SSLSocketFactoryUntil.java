@@ -1,6 +1,7 @@
 package com.softfront.demo.until;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.softfront.demo.BuildConfig;
 import com.softfront.demo.R;
@@ -28,9 +29,11 @@ public class SSLSocketFactoryUntil {
 
     public static SSLSocketFactory createSSLSocketFactory(Context context) {
         SSLSocketFactory sslSocketFactory = null;
-        if (BuildConfig.DEVELOPER_MODE) {
+        if (BuildConfig.DEBUG) {
+            Log.d("AAA", "build developer");
             sslSocketFactory = createSSLSocketFactoryDeveloper(context);
         } else {
+            Log.d("AAA", "build release");
             sslSocketFactory = createSSLSocketFactoryRelease(context);
         }
         return sslSocketFactory != null ? sslSocketFactory : createSSLSocketFactoryDeveloper(context);
