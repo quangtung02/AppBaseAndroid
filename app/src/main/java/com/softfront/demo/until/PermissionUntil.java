@@ -19,7 +19,6 @@ public class PermissionUntil {
     public static final String WRITE_CONTACTS = Manifest.permission.WRITE_CONTACTS;
     public static final String[] listPermission = new String[]{CAMERA, READ_CONTACTS, WRITE_CONTACTS};
 
-
     public interface ShowRationaleCallback {
 
         //Call this method if we should show rationale
