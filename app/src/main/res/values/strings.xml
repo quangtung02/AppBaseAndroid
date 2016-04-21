@@ -1,7 +1,14 @@
 <resources>
     <string name="app_name">AppBaseAndroid</string>
 
+    <!-- App -->
     <string name="btn_ok">Ok</string>
+    <string name="btn_cancel">Cancel</string>
+
+    <!-- Internet connection error -->
     <string name="internet_unable_connection">You have problem with the internet connection</string>
     <string name="unable_connection">You are unable connection</string>
+
+    <!-- Permission -->
+    <string name="permission_access_msg">You need allow access to</string>
 </resources>
