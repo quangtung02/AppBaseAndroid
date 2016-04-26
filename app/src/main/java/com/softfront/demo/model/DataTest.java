@@ -7,7 +7,7 @@ public class DataTest {
 
     private int id;
     private String name;
-    private String data;
+    private String email;
     private boolean type;
 
     public int getId() {
@@ -34,11 +34,11 @@ public class DataTest {
         this.type = type;
     }
 
-    public String getData() {
-        return data;
+    public String getEmail() {
+        return email;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
