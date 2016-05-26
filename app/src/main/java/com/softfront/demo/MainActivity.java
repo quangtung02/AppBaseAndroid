@@ -21,14 +21,21 @@ import com.softfront.demo.until.DialogUtil;
 import com.softfront.demo.until.PermissionUntil;
 import com.softfront.demo.until.ToastUntil;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 
 public class MainActivity extends Activity {
+
+    private static final String TAG = MainActivity.class.getName();
 
     public static final int REQUEST_CODE_ASK_SINGLE_PERMISSION = 1;
     public static final int REQUEST_CODE_ASK_MULTI_PERMISSION = 2;
@@ -164,6 +171,34 @@ public class MainActivity extends Activity {
             public void onFailure(AppError appError) {
                 mTxtNoRecord.setVisibility(View.VISIBLE);
                 DialogUtil.appError(MainActivity.this, appError);
+            }
+        });
+    }
+
+    private void uploadFiles() {
+        File file = new File("this is path of the file");
+        RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+
+        HashMap<String, MultipartBody.Part> hashMap = new HashMap<>();
+
+        // Multipart.Part use to send actually file
+        MultipartBody.Part body = MultipartBody.Part.createFormData("xml", file.getName(), requestFile);
+
+        hashMap.put("file_1", body);
+
+        // Add another request in Multipart.Part
+        RequestBody description = RequestBody.create(MediaType.parse("multipart/form-data"), "This is description of request file");
+
+        Call call = getAppApplication().getAppService().upload(description, hashMap);
+        call.enqueue(new AppCallBack() {
+            @Override
+            public void onSuccess(Object response) {
+
+            }
+
+            @Override
+            public void onFailure(AppError appError) {
+
             }
         });
     }
